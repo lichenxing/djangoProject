@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/statics/plugins/bootstrap-4.6.2/dist/css/bootstrap.css">
+    <title>hello django</title>
+
+</head>
+<p>
+<h1>{{ hello }}</h1>
+<p>{{ name }}</p>
+<p>{{ view_list }}</p>
+<p>{{ view_list.0 }}</p>
+<p>{{ views_dict }}</p>
+<p>{{ views_dict.name }}</p>
+<p>{{ views_dict.age }}</p>
+<p>{{ time|date:"Y-m-d" }}</p>
+<span>
+    {% load static %}
+<img src="{% static 'images/bird_image.png' %}" alt="bird_image">
+</span>
+
+</body>
+</html>
