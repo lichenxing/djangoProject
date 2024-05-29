@@ -14,22 +14,14 @@ djangoProject 项目的 URL 配置。
     1. 导入 include() 函数：  from django.urls import include, path
     2. 添加 URL 到 urlpatterns：  path('blog/', include('blog.urls'))
 """
-
-
 from django.urls import path
 
 from . import views
 
-# urlpatterns = [
-#     path('hello/', views.hello),
-# ]
-
-from django.contrib import admin
-from django.urls import include, path
-
+app_name = "polls"
 urlpatterns = [
-    path("polls/", include("polls.urls")),
-    path("admin/", admin.site.urls),
+    path("", views.IndexView.as_view(), name="index"),
+    path("<int:pk>/", views.DetailView.as_view(), name="detail"),
+    path("<int:pk>/results/", views.ResultsView.as_view(), name="results"),
+    path("<int:question_id>/vote/", views.vote, name="vote"),
 ]
-
-
